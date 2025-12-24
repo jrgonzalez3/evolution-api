@@ -3,9 +3,8 @@ module.exports = {
     {
       name: 'ApiEvolution',
       script: 'npm',
-      args: 'run start:prod',
-      cwd: '/home/deploy/evolution-api',
-      interpreter: '/usr/bin/node',
+      args: 'start',
+      cwd: '/www/wwwroot/botwsp.saastech.cloud',
       env: {
         NODE_OPTIONS: '--max-old-space-size=4096'
       },
