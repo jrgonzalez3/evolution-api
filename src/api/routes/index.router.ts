@@ -194,8 +194,8 @@ router
       message: 'Welcome to the WSP-API By Saastech, it is working!',
       version: packageJson.version,
       clientName: databaseConfig.CONNECTION.CLIENT_NAME,
-      manager: !serverConfig.DISABLE_MANAGER ? `${req.protocol}://${req.get('host')}/manager` : undefined,
-      documentation: `soy yo`,
+      manager: !serverConfig.DISABLE_MANAGER ? `` : undefined,
+      documentation: `https://documenter.getpostman.com/view/24490020/2sB3WyLGm7`,
       whatsappWebVersion: (await fetchLatestWaWebVersion({})).version.join('.'),
     });
   })
