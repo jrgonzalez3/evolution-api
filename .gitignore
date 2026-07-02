@@ -47,3 +47,8 @@ lerna-debug.log*
 
 /prisma/migrations/*
 package-lock.json
+
+# local/aaPanel untracked files
+.user.ini
+.well-known/
+prisma/schema.prisma

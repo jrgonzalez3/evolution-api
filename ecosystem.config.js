@@ -6,9 +6,9 @@ module.exports = {
       args: 'start',
       cwd: '/www/wwwroot/botwsp.saastech.cloud',
       env: {
-        NODE_OPTIONS: '--max-old-space-size=4096'
+        NODE_OPTIONS: '--max-old-space-size=1024'
       },
-      max_memory_restart: '4G',
+      max_memory_restart: '1G',
       watch: false,
     }
   ]
