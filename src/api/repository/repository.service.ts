@@ -9,9 +9,27 @@ export class Query<T> {
   offset?: number;
 }
 
+const POOL_LIMIT = 2;
+
+export function prismaPoolUrl(url: string): string {
+  if (!url) return url;
+  const separator = url.includes('?') ? '&' : '?';
+  const connLimit = `${separator}connection_limit=${POOL_LIMIT}`;
+  if (url.includes('connection_limit=')) return url;
+  return url + connLimit;
+}
+
 export class PrismaRepository extends PrismaClient {
   constructor(private readonly configService: ConfigService) {
-    super();
+    super({
+      datasources: {
+        db: {
+          url: prismaPoolUrl(
+            configService.get<{ CONNECTION: { URI: string } }>('DATABASE').CONNECTION.URI ?? '',
+          ),
+        },
+      },
+    });
   }
 
   private readonly logger = new Logger('PrismaRepository');

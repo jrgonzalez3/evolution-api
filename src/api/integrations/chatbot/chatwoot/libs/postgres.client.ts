@@ -18,6 +18,12 @@ class Postgres {
         ssl: {
           rejectUnauthorized: false,
         },
+        // MAX 2 conexiones: el default (10) satura la RAM del server compartido
+        // (cada conexión idle de pool reservaba ~1GB en prod).
+        max: 2,
+        idleTimeoutMillis: 30_000,
+        connectionTimeoutMillis: 10_000,
+        allowExitOnIdle: true,
       });
 
       this.pool.on('error', () => {
