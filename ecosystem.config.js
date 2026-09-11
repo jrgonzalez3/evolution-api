@@ -4,7 +4,7 @@ module.exports = {
       name: 'ApiEvolution',
       script: 'npm',
       args: 'start',
-      cwd: '/www/wwwroot/botwsp.saastech.cloud',
+      cwd: '/www/wwwroot/botwsp',
       env: {
         NODE_OPTIONS: '--max-old-space-size=1024'
       },
